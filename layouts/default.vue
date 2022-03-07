@@ -1,5 +1,5 @@
 <template lang="pug">
-#app.full-height.bg-circuit.bg-dark.border-primary
+#app.full-height.bg-circuit.border-primary
   //position absolute overlay
   FPSOverlay
   //vue router pages, pages extend pug layout

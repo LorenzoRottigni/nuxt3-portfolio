@@ -1,14 +1,19 @@
 <template lang="pug">
-#radar.border.border-primary.d-flex.flex-wrap
-    .radar-quadrant.d-flex.align-items-center.justify-content-center(
+#radar.border.border-primary.d-flex.flex-wrap.bg-transparent-dark
+    .radar-quadrant.d-flex.flex-column.align-items-center.justify-content-center.border.border-transparent-primary(
         :key="'radar-quadrant-' + index"
         v-for="(route, index) in getVueRoutes"
     )
+        i.text-secondary(:class="getIconByRouteName(route.name)")
         h6.text-primary {{ route.name }}
 </template>
 
 <script lang="ts" setup>
-
+/**
+ * @param {string} routeName
+ * @description get font awesome route classes
+ * @returns {string} classes
+ */
 const getIconByRouteName = (routeName) => {
     switch(routeName){
         case 'index':
@@ -33,7 +38,6 @@ const getIconByRouteName = (routeName) => {
             return 'fas fa-error fa-lg'
     }
 }
-
 /**
  * @description get VueRouter istance
  * @returns {object} istance of VueRouter
@@ -73,27 +77,30 @@ const getRadarVueRoutes = computed(() => {
     return unorderedList;
 }).value
 
-console.log("routes:")
-console.dir(getVueRoutes)
-
-console.log("active route:")
-console.dir(getActiveRouteName)
-
-console.log(getRadarVueRoutes)
 </script>
 
 <script lang="ts">
 </script>
 
 <style lang="sass" scoped>
-$vh-base: 33vh
+//per renderlo responsivo anche in mobile:
+// 1- radar left: calc( 10px + 50%)
+// 2- radar transform: translateX(-50%)
+// 3- pedina left: calc( 10px + 50% + ($vh-base / 3))
+// 4- pedina left: transform translateX(-50%)
+$vh-base: 250px
 #radar
     position: absolute
     top: 10px
-    left: 10px
+    left: calc(10px + 50%)
+    transform: translateX(-50%)
     width: $vh-base
     height: $vh-base
     .radar-quadrant
         width: calc(100% / 3)
         height: calc(100 / 3)
+@media screen and (min-width: 768px)
+    #radar
+        left: 10px
+        transform: translateX(0)
 </style>

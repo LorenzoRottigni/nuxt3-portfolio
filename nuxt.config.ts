@@ -13,6 +13,9 @@ export default defineNuxtConfig({
           { hid: 'description', name: 'description', content: '' },
           { name: 'format-detection', content: 'telephone=no' }
         ],
+        link: [
+            { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' }
+        ]
         // META IMPORT NOT WORKING !!
         /*link: [
           { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

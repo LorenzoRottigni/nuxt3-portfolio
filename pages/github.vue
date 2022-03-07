@@ -2,7 +2,7 @@
 extends ./../layouts/default.pug
 
 block hero-content
-    .col-8.offset-2.border.border-primary
+    .col-8.offset-2
         h1.text-white.text-center  github - Hero Content
         h1.text-white.text-center.font-roboto-mono github-Hero Content
         h2.text-white.text-center.font-roboto-mono roboto mono
@@ -20,10 +20,10 @@ block hero-content
         div.mt-3
             ElementsP(textContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 block deep-content
-    .col-8.offset-2.border.border-primary
+    .col-8.offset-2
             h1.text-white.text-center  github - Deep Content
 block footing-content
-    .col-8.offset-2.border.border-primary
+    .col-8.offset-2
         h1.text-white.text-center  github - Footing content
 </template>
 
