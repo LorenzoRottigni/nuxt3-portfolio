@@ -2,7 +2,7 @@
 extends ./../layouts/default.pug
 
 block hero-content
-    .col-8.offset-2.border.border-primary(data-aos="fade-up")
+    .col-8.offset-2.border.border-primary
         h1.text-white.text-center  github - Hero Content
         h1.text-white.text-center.font-roboto-mono github-Hero Content
         h2.text-white.text-center.font-roboto-mono roboto mono
@@ -20,18 +20,23 @@ block hero-content
         div.mt-3
             ElementsP(textContent="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
 block deep-content
-    .col-8.offset-2.border.border-primary(data-aos="fade-up")
-        h1.text-white.text-center  github - Deep Content
+    .col-8.offset-2.border.border-primary
+            h1.text-white.text-center  github - Deep Content
 block footing-content
-    .col-8.offset-2.border.border-primary(data-aos="fade-up")
+    .col-8.offset-2.border.border-primary
         h1.text-white.text-center  github - Footing content
 </template>
 
 <script lang="ts" setup>
+
 </script>
 
 <script lang="ts">
-export default {}
+//import aosMixin from '~/mixins/aos'
+
+export default {
+    //mixins: [aosMixin]
+}
 </script>
 
 <style lang="sass" scoped>

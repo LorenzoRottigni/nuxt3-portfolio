@@ -25,6 +25,10 @@ export default defineNuxtConfig({
     css: [
         '@/assets/sass/app.sass',
     ],
-    modules: ['bootstrap-vue/nuxt'],
+    modules: [
+      'bootstrap-vue/nuxt',
+    ],
+    build: {
+    },
     components: true
 })
