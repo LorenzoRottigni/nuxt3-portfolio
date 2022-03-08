@@ -12,12 +12,10 @@ block footing-content
         h1.text-white.text-center  skills - Footing content
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <script>
-export default {}
+export default {};
 </script>
 
-<style lang="sass" scoped>
-</style>
+<style lang="sass" scoped></style>

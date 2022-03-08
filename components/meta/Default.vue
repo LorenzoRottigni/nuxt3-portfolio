@@ -4,7 +4,10 @@
     <Html :lang="dynamic > 50 ? 'en-GB' : 'en-US'">
       <Head>
         <Title>{{ dynamic }} title</Title>
-        <Meta name="description" :content="`My page's ${dynamic} description`" />
+        <Meta
+          name="description"
+          :content="`My page's ${dynamic} description`"
+        />
         <Link rel="preload" href="/test.txt" as="script" />
         <Style type="text/css" :children="styleString" />
       </Head>
@@ -18,6 +21,9 @@
 
 <script>
 export default {
-  data: () => ({ dynamic: 49, styleString: 'body { background-color: green; }' })
-}
+  data: () => ({
+    dynamic: 49,
+    styleString: "body { background-color: green; }",
+  }),
+};
 </script>

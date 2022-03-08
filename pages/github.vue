@@ -27,17 +27,14 @@ block footing-content
         h1.text-white.text-center  github - Footing content
 </template>
 
-<script lang="ts" setup>
-
-</script>
+<script lang="ts" setup></script>
 
 <script lang="ts">
 //import aosMixin from '~/mixins/aos'
 
 export default {
-    //mixins: [aosMixin]
-}
+  //mixins: [aosMixin]
+};
 </script>
 
-<style lang="sass" scoped>
-</style>
+<style lang="sass" scoped></style>

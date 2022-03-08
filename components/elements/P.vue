@@ -11,14 +11,14 @@ import { default } from '../../layouts/default.vue';
 const props = defineProps({
   textContent: {
     type: String,
-    required: true
+    required: true,
   },
   hasScroll: {
     type: Boolean,
     required: false,
-    default: false
-  }
-})
+    default: false,
+  },
+});
 </script>
 
 <style lang="sass" scoped>
