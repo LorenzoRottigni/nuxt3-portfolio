@@ -6,15 +6,24 @@
   )
     i.text-secondary(:class="getIconByRouteName(route.name)")
     h6.text-primary {{ route.name }}
-  #user-pawn
+  #user-pawn(ref="user-pawn")
     lord-icon(
-      src="https://cdn.lordicon.com/ibgjiwvi.json",
-      trigger="loop",
-      style="height: 100%; width: 100%"
+        src="https://cdn.lordicon.com/ibgjiwvi.json"
+        trigger="loop"
+        :colors="'primary:' + colorPrimary + ',secondary:' + colorSecondary"
+        :style="{ marginLeft: getPawnOffsetX, marginTop: getPawnOffsetY}"
     )
+    
 </template>
 
 <script lang="ts" setup>
+const colorPrimary = '#dd6600'
+const colorSecondary = '#FDB750'
+const pawnOffsetX = 1
+const pawnOffsetY = 0
+const vhBase = 250
+const gridSize = 3
+const boxSize = vhBase / gridSize
 /**
  * @param {string} routeName
  * @description get font awesome route classes
@@ -84,17 +93,22 @@ const getRadarVueRoutes = computed(() => {
   unorderedList[4] = indexRoute;
   return unorderedList;
 }).value;
+const getPawnOffsetX = computed(() => {
+    return boxSize * pawnOffsetX + 'px'
+})
+const getPawnOffsetY = computed(() => {
+    return boxSize * pawnOffsetY + 'px'
+})
 </script>
 
-<script lang="ts"></script>
+<script lang="ts">
+
+</script>
 
 <style lang="sass" scoped>
-//per renderlo responsivo anche in mobile:
-// 1- radar left: calc( 10px + 50%)
-// 2- radar transform: translateX(-50%)
-// 3- pedina left: calc( 10px + 50% + ($vh-base / 3))
-// 4- pedina left: transform translateX(-50%)
 $vh-base: 250px
+$grid-size: 3
+$box-size: calc(100% / $grid-size)
 #radar
     position: absolute
     top: 10px
@@ -103,13 +117,21 @@ $vh-base: 250px
     width: $vh-base
     height: $vh-base
     .radar-quadrant
-        width: calc(100% / 3)
-        height: calc(100 / 3)
-#user-pawn
-    width: calc($vh-base / 3)
-    height: calc($vh-base / 3)
+        width: $box-size
+        height: $box-size
+    #user-pawn
+        lord-icon
+            width: $box-size
+            height: $box-size
+            position: absolute
+            top: 0
+            left: calc(50% - $box-size)
+            transform: translateX(-50%)
 @media screen and (min-width: 768px)
     #radar
         left: 10px
         transform: translateX(0)
+        #user-pawn lord-icon
+            left: 0
+            transform: translateX(0)
 </style>
