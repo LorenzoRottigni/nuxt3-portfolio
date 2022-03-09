@@ -18,12 +18,7 @@ export default defineNuxtConfig({
         rel: "stylesheet",
         href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css",
       },
-    ],
-    script: [
-      {
-        src: "https://cdn.lordicon.com/lusqsztk.js",
-      },
-    ],
+    ]
     // META IMPORT NOT WORKING !!
     /*link: [
           { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -34,7 +29,48 @@ export default defineNuxtConfig({
         ]*/
   },
   css: ["@/assets/sass/app.sass"],
-  modules: ["bootstrap-vue/nuxt"],
-  build: {},
+  modules: [
+    "bootstrap-vue/nuxt",
+    '@nuxtjs/i18n',
+    {
+        locales: ['en', 'fr', 'es'],
+        defaultLocale: 'en',
+        vueI18n: {
+            fallbackLocale: 'en',
+            messages: {
+                en: {
+                welcome: 'Welcome'
+                },
+                fr: {
+                welcome: 'Bienvenue'
+                },
+                es: {
+                welcome: 'Bienvenido'
+                }
+            }
+        } 
+    }
+  ],
+  i18n: {
+    
+  },
+  build: {
+    transpile: ['lord-icon']
+  },
+  vue: {
+    //dont compile components that start with lord-
+    compilerOptions: {
+      isCustomElement: tag => tag.startsWith('lord-')
+    }
+  },
+  compilerOptions:{
+    strict: true,
+    experimentalDecoratos: true,
+    types: [
+        "@nuxt/types",
+        "@nuxtjs/i18n"
+    ]
+  },
   components: true,
+  
 });
